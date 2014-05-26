@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">test2</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="ButtonOk">ButtonOk</string>
+    <string name="stud_cnt">10</string>
+    <string name="Create">Create</string>
+    <string name="calc">Рассчитать баллы</string><string name="Input">Input</string>
+    <string name="Create1">Создать</string>
+    <string name="menu">Menu</string>
+    <string name="studText">Студенты</string>
+    <string name="labsText">Лабы</string>
+    
+
+</resources>

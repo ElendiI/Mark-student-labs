@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+    
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cont"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="horizontal"
+    android:screenOrientation="portrait"
+    android:configChanges="keyboardHidden|orientation">
+
+    <HorizontalScrollView
+        android:id="@+id/HorizontalScrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
+
+        <ScrollView
+            android:id="@+id/scroll"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fillViewport="true"
+            android:scrollbars="none" >
+
+            <AbsoluteLayout
+                android:id="@+id/mainl"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:clickable="false"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="horizontal|vertical" >
+
+                <Button
+                    android:id="@+id/btn1"
+                    android:layout_width="139dp"
+                    android:layout_height="wrap_content"
+                    android:layout_x="93dp"
+                    android:layout_y="90dp"
+                    android:text="@string/Create1" />
+
+                <LinearLayout
+                    android:id="@+id/content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="0dp"
+                    android:layout_y="0dp"
+                    android:orientation="horizontal" >
+
+                    <TableLayout
+                        android:id="@+id/tl1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp" >
+
+                    </TableLayout>
+
+                    <TableLayout
+                        android:id="@+id/tl2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="2dp" >
+
+                    </TableLayout>
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/EditLabs"
+                    android:layout_width="59dp"
+                    android:layout_height="wrap_content"
+                    android:layout_x="163dp"
+                    android:layout_y="40dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <EditText
+                    android:id="@+id/EditStud"
+                    android:layout_width="58dp"
+                    android:layout_height="wrap_content"
+                    android:layout_x="98dp"
+                    android:layout_y="40dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:id="@+id/studText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="87dp"
+                    android:layout_y="20dp"
+                    android:text="@string/studText" />
+
+                <TextView
+                    android:id="@+id/labsText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_x="165dp"
+                    android:layout_y="20dp"
+                    android:text="@string/labsText" />
+
+            </AbsoluteLayout>
+        </ScrollView>
+    </HorizontalScrollView>
+
+</AbsoluteLayout>
