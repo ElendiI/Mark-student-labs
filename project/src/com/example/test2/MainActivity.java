@@ -23,7 +23,6 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 	int n,m;
-//тест
 	TableLayout tl1, tl2;
 	Button btn1;
 	EditText labs, stud;
@@ -140,7 +139,6 @@ void calc() {
 	}
 }
 void save() {
-	
     //записываем данные
 	BufferedWriter bw;
 	try {
