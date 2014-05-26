@@ -80,15 +80,15 @@ public class MainActivity extends ActionBarActivity {
 		    	}
 		    		//сохранение
 	    	case 3:
-		    	/*if (created) {
+		    	if (created) {
 		    		calc();
 		    		save();
-					break;*/
+					break;
 		    	}
 				//загрузка из файла (пока одного)
 	    	case 4:
-	    	    //	load();
-	    	    //	calc();
+	    	    	load();
+	    	    	calc();
 				break;
 	    	}
 			return false;
@@ -139,7 +139,78 @@ void calc() {
 		}
 	}
 }
-
+void save() {
+	
+    //записываем данные
+	BufferedWriter bw;
+	try {
+		bw = new BufferedWriter(new OutputStreamWriter(openFileOutput("testfile.txt", MODE_PRIVATE)));
+		bw.write(n + "\r\n" );
+		bw.write(m + "\r\n");
+		for (int j = 0; j < m; j++) {
+			bw.write(lab_value[j].getText().toString() + "\r\n");
+		}
+		for (int i = 0; i < n; i++){
+			bw.write(txt[i].getText().toString() + "\r\n");
+		}
+		for (int i = 0; i < n; i++){
+			for(int j = 0; j < m; j++){
+				bw.write(String.valueOf(l[i][j]));
+			}
+			bw.write("\r\n");
+		}
+	    bw.close();
+	    
+	} 
+	catch (FileNotFoundException e) {
+		e.printStackTrace();
+	      Toast.makeText(this, "Нет файла", Toast.LENGTH_LONG).show();
+	} 
+	catch (IOException e) {
+		e.printStackTrace();
+	      Toast.makeText(this, "Ошибка", Toast.LENGTH_LONG).show();
+	}
+}
+void load() {
+	try {
+        // открываем поток для чтения
+        BufferedReader br;
+        br = new BufferedReader(new InputStreamReader(openFileInput("testfile.txt")));
+        String str = "";
+        int i;
+        int j;
+        //данные о размерах таблицы
+        n = Integer.parseInt(br.readLine());
+        m = Integer.parseInt(br.readLine());
+	  	//пересоздаем содержимое активити, затираем лишнее
+        create();
+        //заполняем таблицу сохраненными ранее данными
+        for (j = 0; j < m; j++) {
+        	lab_value[j].setText(br.readLine());
+        }
+        for (i = 0; i < n; i++) {
+        	txt[i].setText(br.readLine());
+        }
+        for (i = 0; i < n; i++) { //
+        	str = br.readLine();
+        	for (j = 0; j < m; j++) {
+        			if (str.charAt(j) == '1'){
+        					lab[i][j].setChecked(true);
+        					
+        			}
+        	}
+        }
+        }
+       
+    catch (FileNotFoundException e) {
+        e.printStackTrace();
+        Toast.makeText(this, "нет файла", Toast.LENGTH_LONG).show();
+      } 
+    catch (IOException e) {
+        e.printStackTrace();
+        Toast.makeText(this, "ошибка", Toast.LENGTH_LONG).show();
+      }
+}
 void create() {
 
 		created = true;
