@@ -60,6 +60,118 @@ public class MainActivity extends ActionBarActivity {
 	        
 	        return super.onCreateOptionsMenu(menu);
 	      }
+
+	    //обработка нажати€ в менюшке
+	    /*public boolean onOptionsItemSelected(MenuItem item){
+
+	    	switch (item.getItemId()) {
+	    	//пересчет
+	    	case 1:	
+		    	if (created) {
+		    		calc();
+		    		break;
+
+		    	}
+	    		//удаление
+	    	case 2:
+		    	if (created) {
+		    		delete();
+		    		break;
+		    	}
+		    		//сохранение
+	    	case 3:
+		    	if (created) {
+		    		сalc();
+		    		save();
+					break;
+		    	}
+				//загрузка из файла (пока одного)
+	    	case 4:
+	    	    	load();
+	    	    	calc();
+				break;
+	    	}
+			return false;
+	    	
+	    }*/
+
+OnClickListener createTable = new OnClickListener(){
+
+	public void onClick(View v) {
+		String ss = stud.getText().toString();
+		String ls = labs.getText().toString();
+		
+		if (!ss.isEmpty() & !ls.isEmpty()) {
+			n = Integer.parseInt(ss);
+			if (n > 50) 
+				n = 50;
+			m = Integer.parseInt(ls);
+			if (m > 20) 
+				m = 20;
+			create();
+		}
+		else {
+	        Toast.makeText(getApplicationContext(), "¬ведите данные",Toast.LENGTH_LONG).show();
+		}
+	 }
+};
+
+void create() {
+
+		created = true;
+		btn1.setVisibility(View.GONE);
+		labs.setVisibility(View.GONE);
+		stud.setVisibility(View.GONE);
+		studText.setVisibility(View.GONE);
+		labsText.setVisibility(View.GONE);
+		txt = new EditText[n];
+	  	lab = new CheckBox[n][m];
+	  	lab_value = new EditText[m];
+	  	sum_mark = new TextView[n];
+	  	row2 = new TableRow[n];
+	  	row1 = new TableRow[n];
+	  	l = new int[n][m];
+	  	inviz = new EditText(getApplicationContext());
+	  	inviz.setVisibility(View.INVISIBLE);
+	  	val_labsRow = new TableRow(getApplicationContext());
+	  	titleRow = new TableRow(getApplicationContext());
+	  	titleRow.addView(inviz);
+	  	tl1.addView(titleRow);	
+	  	for (int j = 0; j < m; j++) {
+		  	lab_value[j] = new EditText(getApplicationContext());
+		  	lab_value[j].setInputType(InputType.TYPE_CLASS_NUMBER);
+		  	val_labsRow.addView(lab_value[j]);
+	  	}
+		  	tl2.addView(val_labsRow);
+	  	for (int i = 0; i < n; i++) {
+	  		txt[i] = new EditText(getApplicationContext());
+	  		txt[i].setSingleLine();
+	  		txt[i].setMinWidth(200);
+	  		sum_mark[i] = new TextView(getApplicationContext());
+	  		sum_mark[i].setTextSize(25);
+	  		sum_mark[i].setText("0");
+	  		//sum_mark[i].setTextSize(30);
+	  		//sum_mark[i].setPadding(5, 4, 5, 3);
+	  		row2[i] = new TableRow(getApplicationContext());
+	  		for (int j = 0; j < m; j++) {
+	  			l[i][j] = 0;
+	  			lab[i][j] = new CheckBox(getApplicationContext());
+	  			row2[i].addView(lab[i][j]);
+	  		}
+		row1[i] = new TableRow(getApplicationContext());
+	  	row1[i].addView(txt[i]);
+	  	row1[i].addView(sum_mark[i]);
+	  	tl1.addView(row1[i]);
+	  	tl2.addView(row2[i]);
+	  					
+
+	  	}
+	  	//testclass.setStudCount(n);
+	  	//testclass.setLabCount(m);
+    	//testclass.setLabMatrix(l);
+	}
+
+	    
 };
 
     
