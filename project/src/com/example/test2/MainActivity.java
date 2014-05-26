@@ -62,7 +62,7 @@ public class MainActivity extends ActionBarActivity {
 	      }
 
 	    //обработка нажатия в менюшке
-	    /*public boolean onOptionsItemSelected(MenuItem item){
+	    public boolean onOptionsItemSelected(MenuItem item){
 
 	    	switch (item.getItemId()) {
 	    	//пересчет
@@ -80,20 +80,20 @@ public class MainActivity extends ActionBarActivity {
 		    	}
 		    		//сохранение
 	    	case 3:
-		    	if (created) {
-		    		сalc();
+		    	/*if (created) {
+		    		calc();
 		    		save();
-					break;
+					break;*/
 		    	}
 				//загрузка из файла (пока одного)
 	    	case 4:
-	    	    	load();
-	    	    	calc();
+	    	    //	load();
+	    	    //	calc();
 				break;
 	    	}
 			return false;
 	    	
-	    }*/
+	    }
 
 OnClickListener createTable = new OnClickListener(){
 
@@ -115,6 +115,30 @@ OnClickListener createTable = new OnClickListener(){
 		}
 	 }
 };
+void delete() {
+	tl1.removeAllViews();
+	tl2.removeAllViews();
+	btn1.setVisibility(View.VISIBLE);
+	labs.setVisibility(View.VISIBLE);
+	stud.setVisibility(View.VISIBLE);
+	created = false;
+}
+void calc() {
+	int temp;
+	for (int i = 0; i < n; i++) {
+		sum_mark[i].setText("0");
+		for (int j = 0; j < m; j++) {
+			if (lab[i][j].isChecked()) {
+				temp = Integer.parseInt(sum_mark[i].getText().toString())+Integer.parseInt(lab_value[j].getText().toString());
+				sum_mark[i].setText(Integer.toString(temp));
+				l[i][j] = 1;
+			}
+			else 
+				l[i][j] = 0;
+
+		}
+	}
+}
 
 void create() {
 
